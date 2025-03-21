@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accepted Requests</title>
+  </head>
+  <body>
+    <h2>Accepted Requests</h2>
+    <div id="acceptedContainer"></div>
+
+    <script>
+      function showAcceptedRequests() {
+        const container = document.querySelector("#acceptedContainer");
+        let acceptedRequests =
+          JSON.parse(localStorage.getItem("acceptedRequests")) || [];
+
+        if (acceptedRequests.length > 0) {
+          acceptedRequests.forEach((data) => {
+            let smalldiv = document.createElement("div");
+            smalldiv.style.display = "flex";
+            smalldiv.style.marginBottom = "10px";
+            smalldiv.innerHTML=`<input type="checkbox">`;
+
+
+            let enrollno = document.createElement("h3");
+            enrollno.textContent = "Enrollment: " + data.Enrollno;
+            enrollno.style.marginRight = "100px";
+
+            let date = document.createElement("h3");
+            date.textContent = "Date: " + data.Date;
+            date.style.marginRight = "100px";
+
+            let time = document.createElement("h3");
+            time.textContent = "Time: " + data.Time;
+            time.style.marginRight = "100px";
+
+            let reason = document.createElement("h3");
+            reason.textContent = "Reason: " + data.Reason;
+            reason.style.marginRight = "100px";
+
+            smalldiv.appendChild(enrollno);
+            smalldiv.appendChild(date);
+            smalldiv.appendChild(time);
+            smalldiv.appendChild(reason);
+
+            container.appendChild(smalldiv);
+          });
+        } else {
+          container.innerHTML = "<p>No accepted requests yet.</p>";
+        }
+      }
+      showAcceptedRequests();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#message {
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+}
+
+.a-form {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 600px;
+  margin-top: 150px;
+}
+
+.a-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.a-input p {
+  font-size: 25px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.a-input input {
+  height: 35px;
+  width: 300px;
+  margin-bottom: 0px;
+  font-weight: bold;
+  border-width: 2px;
+}
+
+.a-input button {
+  margin-top: 28px;
+  margin-bottom: 20px;
+  height: 33px;
+  border-radius: 20px;
+  font-size: 20px;
+  background-color: rgb(47, 144, 176);
+  color: white;
+  font-weight: bold;
+}
+
+.a-input a {
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.a-input button:hover {
+  color: black;
+}
+
+.a-form img {
+  height: 270px;
+}
+
+/* ..............................admin home.................................... */
+
+.navbar {
+  width: 1600px;
+  height: 60px;
+  padding: 18px 0px 0px 0px;
+  background-color: rgb(47, 144, 176);
+  position: fixed;
+}
+
+.navbar a {
+  margin-right: 60px;
+  padding: 30px;
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+}
+
+.navbar a:hover {
+  color: black;
+}
+
+.s-img {
+  background-image: url(admin.png);
+  background-size: cover;
+  height: 500px;
+  width: 500px;
+  position: fixed;
+  margin: 100px 0px 0px 500px;
+}

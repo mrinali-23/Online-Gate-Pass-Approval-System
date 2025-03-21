@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="home.css" />
+    <title>Gatepass</title>
+  </head>
+  <body>
+    <form action="" id="slogin-sub">
+      <div class="s-login">
+        <img class="img" src="student.png" alt="student.logo" /><br />
+        <h1>Login</h1>
+        <br />
+        <label>Student Name:</label>
+        <input
+          type="text"
+          placeholder="Enter your name"
+          id="inputname"
+        /><br /><br />
+        <label>Student Id:</label>
+        <input
+          type="text"
+          placeholder="Enter your enrollment no."
+          id="enroll"
+        /><br /><br />
+        <button onclick="Login()" type="button">Login</button>
+      </div>
+      <script src="home.js"></script>
+    </form>
+    <p id="s-msg"></p>
+  </body>
+</html>

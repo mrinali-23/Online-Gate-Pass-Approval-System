@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main-page {
+  background-image: url("gate.png");
+  background-size: cover;
+  height: 500px;
+  width: 500px;
+  margin-left: 500px;
+  position: fixed;
+}
+
+.main-txt {
+  margin-top: 550px;
+  font-size: 50px;
+}
+
+.main-txt button {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.btn-link {
+  text-decoration: none;
+  color: black;
+}
+
+.btn-link:hover {
+  color: blue;
+}

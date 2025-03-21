@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: white;
+  color: black;
+}
+
+.navbar {
+  margin: 40px;
+  width: 1450px;
+  height: 40px;
+  padding: 18px 0px 0px 0px;
+  background-color: rgb(182, 58, 149);
+  position: fixed;
+  font-weight: bolder;
+}
+
+.navbar a {
+  margin-right: 60px;
+  padding: 30px;
+  text-decoration: none;
+  color: white;
+}
+
+.navbar a:hover {
+  color: black;
+}
+
+.s-img {
+  background-image: url(student.png);
+  background-size: cover;
+  height: 500px;
+  width: 500px;
+  position: fixed;
+  margin: 130px 0px 0px 500px;
+}
+
+/*.....................................................STUDENT LOGIN PAGE..........................................................*/
+
+.s-login {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.s-login input {
+  width: 300px;
+  height: 30px;
+  font-weight: bold;
+  border-radius: 2px;
+}
+
+.img {
+  margin: 50px 0px 0px 20px;
+}
+
+.s-login button {
+  width: 200px;
+  height: 35px;
+  font-size: 20px;
+  border-radius: 15px;
+  background-color: rgb(47, 144, 176);
+  color: white;
+}
+
+/*.........................................................REQUEST FOR OUTPASS..............................................................*/
+
+.req-pass {
+  text-align: center;
+}
+
+.req-in {
+  margin-bottom: 40px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.req-in input {
+  height: 30px;
+  font-weight: bold;
+  border-width: 2px;
+}
+
+#rea-in {
+  width: 500px;
+}
+
+#enroll {
+  width: 300px;
+}
+
+.sub-btn {
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 40px;
+  width: 200px;
+  border-width: 2px;
+  background-color: rgb(47, 144, 176);
+  color: white;
+  margin-bottom: 10px;
+}
+
+.sub-btn:hover {
+  color: blue;
+}
+
+#logo {
+  margin-left: 690px;
+}
+
+.backbtn {
+  font-size: 20px;
+  color: black;
+}
+
+/*....................................................VIEW OUTPASS......................................................*/
+
+.s-check {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.s-input-check {
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.s-check input {
+  width: 600px;
+  height: 25px;
+  border-width: 2px;
+  font-weight: bold;
+}
+
+.s-check button {
+  font-size: 20px;
+  border-radius: 20px;
+  width: 100px;
+  height: 35px;
+  background-color: rgb(207, 109, 163);
+  color: whitesmoke;
+  margin-bottom: 10px;
+}
+
+.s-check button:hover {
+  color: blue;
+}
+
+#check-img {
+  margin-left: 680px;
+  margin-top: 50px;
+}
+
+#back {
+  font-size: 17px;
+  color: black;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="body"></div>
+    <!-- Delete All Data Button -->
+    <button onclick="deleteAllData()">Delete All</button>
+  </body>
+</html>
+<script>
+  function Login() {
+    const container = document.querySelector("#body");
+    const savedata = JSON.parse(localStorage.getItem("savedata"));
+
+    if (savedata.length > 0) {
+      savedata.forEach(function (data) {
+        let smalldiv = document.createElement("div");
+
+        let name = document.createElement("p");
+        name.textContent = "Name:" + data.Name;
+        name.style.marginRight = "100px";
+
+        let enroll = document.createElement("p");
+        enroll.textContent = "Enrollment:" + data.Enrollment;
+
+        smalldiv.append(name, enroll);
+        smalldiv.style.display = "flex";
+        container.appendChild(smalldiv);
+      });
+    } else {
+      container.innerHTML = "<h1>data is not found</h1>";
+    }
+  }
+  // "Delete All" button function
+  function deleteAllData() {
+    let confirmation = confirm("Are you sure you want to delete all data?");
+    if (confirmation) {
+      localStorage.removeItem("savedata"); // LocalStorage ka data delete kare
+      document.querySelector("#body").innerHTML = "<h1>Data is not found</h1>"; // Page se bhi hata do
+
+    }
+  }
+
+  Login();
+</script>
