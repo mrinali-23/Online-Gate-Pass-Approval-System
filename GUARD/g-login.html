@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="guard.css" />
+    <title>Gatepass</title>
+  </head>
+  <body>
+    <form onsubmit="return guardLogin(event)" id="gform">
+      <img src="guard.png" alt="logo" id="g-logo" />
+      <div class="g-login">
+        <p>Login:</p>
+        <input
+          type="text"
+          placeholder="Enter name"
+          id="guardlogin"
+        /><br /><br />
+        <p>Password:</p>
+        <input
+          type="password"
+          placeholder="Enter password"
+          id="guardpassword"
+        /><br /><br />
+        <button>Login</button><br /><br />
+      </div>
+    </form>
+
+    <p id="msg"></p>
+
+    <script>
+      function guardLogin(event) {
+        event.preventDefault(); // Prevent form submission
+
+        let glogin = document.getElementById("guardlogin").value;
+        let gpassword = document.getElementById("guardpassword").value;
+        let gmessage = document.getElementById("msg");
+
+        // Dummy username and password for validation
+        let correctGlogin = "guard";
+        let correctGpassword = "4321";
+        if (glogin === "" || gpassword === "") {
+          gmessage.style.color = "red";
+          gmessage.innerText = "Please fill in all fields.";
+        } else if (glogin === correctGlogin && gpassword === correctGpassword) {
+          gmessage.style.color = "green";
+          gmessage.innerText = "Login successful! Redirecting...";
+
+          // Redirect to next page after 1 seconds
+          setTimeout(() => {
+            window.location.href = "guard.html"; // Change this to your target page
+          }, 1000);
+        } else {
+          gmessage.style.color = "red";
+          gmessage.innerText = "Invalid username or password.";
+        }
+        document.getElementById("gform").reset();
+        history.replaceState(null, null, "guard.html"); // Replace login page in history
+      }
+    </script>
+  </body>
+</html>

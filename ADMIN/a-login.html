@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="admin.css" />
+    <title>Gatepass</title>
+  </head>
+
+  <body>
+    <form onsubmit="return validateLogin(event)" id="alogin-sub">
+      <div class="a-form">
+        <img src="admin.png" alt="logo" />
+        <div class="a-input">
+          <p>Login:</p>
+          <input type="text" id="username" placeholder="Enter Name" />
+          <p>Password:</p>
+          <input type="password" id="password" placeholder="Enter Password" />
+          <button type="submit">Login</button>
+        </div>
+      </div>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+      function validateLogin(event) {
+        event.preventDefault(); // Prevent form submission
+
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        let message = document.getElementById("message");
+
+        // Dummy username and password for validation
+        let correctUsername = "admin";
+        let correctPassword = "1234";
+        if (username === "" || password === "") {
+          message.style.color = "red";
+          message.innerText = "Please fill in all fields.";
+        } else if (
+          username === correctUsername &&
+          password === correctPassword
+        ) {
+          message.style.color = "green";
+          message.innerText = "Login successful! Redirecting...";
+
+          // Redirect to next page after 2 seconds
+          setTimeout(() => {
+            window.location.href = "admin.html"; // Change this to your target page
+          }, 2000);
+        } else {
+          message.style.color = "red";
+          message.innerText = "Invalid username or password.";
+        }
+        document.getElementById("alogin-sub").reset();
+        history.replaceState(null, null, "admin.html"); // Replace login page in history
+      }
+    </script>
+  </body>
+</html>

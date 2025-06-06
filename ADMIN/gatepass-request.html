@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="body"></div>
+  </body>
+</html>
+<script>
+  function RequestPass() {
+    const container = document.querySelector("#body");
+    const savereq = JSON.parse(localStorage.getItem("savereq"));
+
+    if (savereq.length > 0) {
+      savereq.forEach(function (data, index) {
+        let smalldiv = document.createElement("div");
+        smalldiv.style.display = "flex";
+
+        let enrollno = document.createElement("h3");
+        enrollno.textContent = "Enrollment:" + data.Enrollno;
+        enrollno.style.marginRight = "100px";
+
+        let date = document.createElement("h3");
+        date.textContent = "Date:" + data.Date;
+        date.style.marginRight = "100px";
+
+        let time = document.createElement("h3");
+        time.textContent = "Time:" + data.Time;
+        time.style.marginRight = "100px";
+
+        let reason = document.createElement("h3");
+        reason.textContent = "Reason:" + data.Reason;
+        reason.style.marginRight = "100px";
+
+        let accept = document.createElement("button");
+        accept.textContent = "Accept";
+        accept.style.marginRight = "100px";
+        accept.style.height = "40px";
+        accept.style.width = "100px";
+        accept.style.fontSize = "15px";
+        accept.style.marginTop = "10px";
+        // accept.onclick = function () {
+        //   updateStatus(index, "Accepted", data);
+        // };
+
+        accept.addEventListener("click", () => {
+          // Local Storage se "rejectedRequests" list ko uthao (agar exist nahi karta to empty array lo)
+          let acceptedRequests =
+            JSON.parse(localStorage.getItem("acceptedRequests")) || [];
+
+          // Data ko rejectedRequests list me add karo
+          acceptedRequests.push(data);
+
+          // Local Storage me update karo
+          localStorage.setItem(
+            "acceptedRequests",
+            JSON.stringify(acceptedRequests)
+          );
+
+          // Original request list (savereq) se hatao
+          savereq.splice(index, 1);
+          localStorage.setItem("savereq", JSON.stringify(savereq));
+
+          // UI se hatao
+          smalldiv.remove();
+        });
+
+        let reject = document.createElement("button");
+        reject.textContent = "Reject";
+        reject.style.height = "40px";
+        reject.style.width = "100px";
+        reject.style.fontSize = "15px";
+        reject.style.marginTop = "10px";
+        // reject.onclick = function () {
+        //   updateStatus(index, "Rejected", data);
+        // };
+
+        // Reject Button Click Event
+        reject.addEventListener("click", () => {
+          // Local Storage se "rejectedRequests" list ko uthao (agar exist nahi karta to empty array lo)
+          let rejectedRequests =
+            JSON.parse(localStorage.getItem("rejectedRequests")) || [];
+
+          // Data ko rejectedRequests list me add karo
+          rejectedRequests.push(data);
+
+          // Local Storage me update karo
+          localStorage.setItem(
+            "rejectedRequests",
+            JSON.stringify(rejectedRequests)
+          );
+
+          // Original request list (savereq) se hatao
+          savereq.splice(index, 1);
+          localStorage.setItem("savereq", JSON.stringify(savereq));
+
+          // UI se hatao
+          smalldiv.remove();
+        });
+
+        smalldiv.append(enrollno, date, time, reason, accept, reject);
+        container.appendChild(smalldiv);
+      });
+    }
+  }
+  // // else {
+  //   container.innerHTML = "<h1>data is not found</h1>";
+  // }
+
+  RequestPass();
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="home.css" />
+    <title>Gatepass</title>
+  </head>
+  <body>
+    <img src="student.png" alt="logo" id="check-img" />
+    <div class="s-check">
+      <div class="s-input-check">
+        <label>STUDENT ID</label><br /><br />
+        <input type="text" id="studentId" /><br />
+      </div>
+      <button id="submitBtn">Submit</button>
+      <div><a href="home.html" class="backbtn" id="back">Back</a></div>
+      <div id="statusResult"></div>
+    </div>
+  </body>
+  <script>
+    document.getElementById("submitBtn").addEventListener("click", function () {
+      let studentID = document.getElementById("studentId").value;
+      let acceptedRequests =
+        JSON.parse(localStorage.getItem("acceptedRequests")) || [];
+      let rejectedRequests =
+        JSON.parse(localStorage.getItem("rejectedRequests")) || [];
+
+      let statusMessage = "Pending"; // Default status
+
+      if (acceptedRequests.some((request) => request.Enrollno === studentID)) {
+        statusMessage = "Accepted";
+      } else if (
+        rejectedRequests.some((request) => request.Enrollno === studentID)
+      ) {
+        statusMessage = "Rejected";
+      }
+
+      // Show status result
+      let resultDiv = document.getElementById("statusResult");
+      if (!resultDiv) {
+        resultDiv = document.createElement("div");
+        resultDiv.id = "statusResult";
+        document.body.appendChild(resultDiv);
+      }
+      resultDiv.innerHTML = `<p style="font-size: 40px; font-weight: bold;"><strong>${statusMessage}</strong></p>`;
+    });
+  </script>
+</html>
